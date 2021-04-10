@@ -2,11 +2,13 @@ package com.example.mvvmexample
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mvvmexample.model.Movie
 import com.example.mvvmexample.viewmodel.MoviesListViewModel
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,11 +24,15 @@ class MainActivity : AppCompatActivity() {
         moviesListViewModel = ViewModelProvider.NewInstanceFactory().create(MoviesListViewModel::class.java)
         moviesListViewModel.init()
         initObserver()
+        loadingVisibility(true)
     }
 
     private fun initObserver() {
         moviesListViewModel.ldMoviesList.observe(this, Observer { list ->
-            populateList(list)
+            if (list.isNotEmpty()) {
+                populateList(list)
+                loadingVisibility(false)
+            }
         })
     }
 
@@ -35,5 +41,9 @@ class MainActivity : AppCompatActivity() {
             hasFixedSize()
             adapter = MoviesAdapter(list)
         }
+    }
+
+    private fun loadingVisibility(isLoading: Boolean) {
+        progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 }
