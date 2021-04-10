@@ -1,4 +1,4 @@
-package com.example.mvvmexample.model
+package com.example.mvvmexample.domain
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

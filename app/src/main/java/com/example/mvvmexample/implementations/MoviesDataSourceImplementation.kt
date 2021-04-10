@@ -1,17 +1,19 @@
-package com.example.mvvmexample.repository
+package com.example.mvvmexample.implementations
 
 import android.util.Log
 import com.example.mvvmexample.api.MoviesRestApiTask
-import com.example.mvvmexample.model.Movie
+import com.example.mvvmexample.data.MoviesDataSource
+import com.example.mvvmexample.domain.Movie
 
-class MoviesRepository(private val moviesRestApiTask: MoviesRestApiTask) {
+class MoviesDataSourceImplementation(
+    private val moviesRestApiTask: MoviesRestApiTask): MoviesDataSource {
 
     companion object {
-        const val TAG = "MoviesRepository"
+        const val TAG = "MoviesDataSourceImplementation"
     }
     private val moviesList = arrayListOf<Movie>()
 
-    fun getAllMovies(): List<Movie> {
+    override fun getAllMovies(): List<Movie> {
         val request = moviesRestApiTask.retrofitApi().getAllMovies().execute()
 
         if (request.isSuccessful) {

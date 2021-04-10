@@ -1,11 +1,12 @@
-package com.example.mvvmexample
+package com.example.mvvmexample.presenter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.example.mvvmexample.model.Movie
+import com.example.mvvmexample.R
+import com.example.mvvmexample.domain.Movie
 import kotlinx.android.synthetic.main.movie_item.view.*
 
 class MoviesAdapter(private val moviesList: List<Movie>): RecyclerView.Adapter<MoviesViewHolder>() {

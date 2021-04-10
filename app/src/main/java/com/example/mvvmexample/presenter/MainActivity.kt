@@ -1,4 +1,4 @@
-package com.example.mvvmexample
+package com.example.mvvmexample.presenter
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,7 +6,8 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mvvmexample.model.Movie
+import com.example.mvvmexample.R
+import com.example.mvvmexample.domain.Movie
 import com.example.mvvmexample.viewmodel.MoviesListViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 

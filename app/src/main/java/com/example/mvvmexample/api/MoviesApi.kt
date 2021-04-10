@@ -1,6 +1,6 @@
 package com.example.mvvmexample.api
 
-import com.example.mvvmexample.model.Movie
+import com.example.mvvmexample.domain.Movie
 import retrofit2.Call
 import retrofit2.http.GET
 
